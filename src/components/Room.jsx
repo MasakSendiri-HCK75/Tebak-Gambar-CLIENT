@@ -1,14 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-
 export default function Room({ data }) {
-  const navigate = useNavigate()
-  
-  const handleClick= ()=>{
+  const navigate = useNavigate();
+
+  const handleClick = () => {
     // console.log("KLIKED")
-    navigate("/gameplay")
-  }
-  
+    navigate("/gameplay");
+  };
 
   return (
     <div className=" flex flex-col justify-center items-center gap-10 mt-24">
@@ -33,7 +31,16 @@ export default function Room({ data }) {
         </table>
       </div>
       <div className="text-center">
-        <button onClick={handleClick} className="btn bg-sky-900 text-white ">PLAY GAME</button>
+        <button
+          onClick={handleClick}
+          className="btn bg-cover bg-center text-white font-bold text-2xl px-12 py-6 rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out"
+          style={{
+            backgroundImage: "url('https://i.pinimg.com/originals/0a/e6/d6/0ae6d6b90d8f455ce7f742ff1887d714.gif')",
+            backgroundSize: "cover",
+          }}
+        >
+          PLAY GAME
+        </button>
       </div>
     </div>
   );
