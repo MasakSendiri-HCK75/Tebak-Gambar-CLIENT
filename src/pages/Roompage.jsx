@@ -35,9 +35,9 @@ export default function Roompage() {
   },[])
 
   return (
-    <div className="bg-[url('./assets/bg.jpg')] w-full h-screen bg-cover bg-no-repeat">
+    <div className="bg-[url('./assets/1.jpg')] w-full h-screen bg-cover bg-no-repeat ">
 
-      <div className="flex flex-wrap gap-10 p-20 justify-center">
+      <div className=" flex flex-wrap gap-10 p-20 justify-center">
           <Room data={roomDummy} />
       
 
