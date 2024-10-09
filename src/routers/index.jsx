@@ -3,6 +3,8 @@ import RootLayout from "../layout/RootLayout";
 import Index from "../pages/Index";
 import Roompage from "../pages/Roompage";
 import Quiz from "../pages/Quiz";
+import LandingPage from "../pages/Landing";
+import HomePage from "../pages/Homepage";
 
 export const router = createBrowserRouter([
     {
@@ -10,12 +12,24 @@ export const router = createBrowserRouter([
         element:<RootLayout/>,
         children:[
             {
-                path:"",
+                path:"/",
+                element:<LandingPage/>
+            },
+            {
+                path:"homepage",
+                element:<HomePage/>
+            },
+            {
+                path:"room",
                 element:<Roompage/>
             },
             {
                 path:"quiz",
                 element:<Quiz/>
+            },
+            {
+                path: "gamePlay",
+                element: <GamePlay/>
             }
         ]
     }
