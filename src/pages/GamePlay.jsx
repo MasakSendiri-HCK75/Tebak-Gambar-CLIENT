@@ -5,7 +5,7 @@ export default function GamePlay() {
       style={{ alignItems: "center" }}
     >
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <div className="bg-sky-900 p-6 rounded-lg bg-sky-900 text-white flex flex-col items-center justify-center">
+        <div className="bg-sky-900 p-6 rounded-lg text-white flex flex-col items-center justify-center">
         <h2 className="text-4xl font-semibold text-center mb-8">Tebak Bendera</h2>
 
         <div className="flex justify-center mb-6">
