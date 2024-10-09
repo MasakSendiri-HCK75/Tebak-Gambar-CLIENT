@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function LandingPage() {
   const [name, setName] = useState();
@@ -7,6 +8,16 @@ export default function LandingPage() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if(!name){
+      return(
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please put your name before play!",
+        })
+      )
+    }
+
     localStorage.setItem("name", name);
     navigate("/homepage");
   };
@@ -31,7 +42,7 @@ export default function LandingPage() {
         <div className="join">
           <input
             className="input input-bordered join-item w-96 h-16 text-xl rounded-full shadow-md px-6"
-            placeholder="         Type your nickname here..."
+            placeholder="Type your nickname here..."
             name="nickname"
             id="nickname"
             value={name}
