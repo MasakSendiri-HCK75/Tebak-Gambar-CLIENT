@@ -6,7 +6,8 @@ const flagData = [
     id: 1, 
     negara: "Indonesia", 
     image: "https://flagcdn.com/w320/id.png",
-    alternatif: ["Republik Indonesia"]
+    alternatif: ["Republik Indonesia"],
+
   },
   { 
     id: 2, 
@@ -65,7 +66,13 @@ const flagData = [
 ];
 
 
-export default function FlagQuiz() {
+
+const score= [
+  {name1:0},
+  
+];
+
+export default function Quiz() {
 
     const [input, setInput] = useState("")
     const [score, setScore] = useState(0)

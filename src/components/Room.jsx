@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Room({ data }) {
   const navigate = useNavigate()
+  
   const handleClick= ()=>{
     // console.log("KLIKED")
     navigate("/gameplay")
