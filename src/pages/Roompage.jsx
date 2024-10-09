@@ -12,6 +12,7 @@ export default function Roompage() {
   const [roomDummy, setRoomDummy] = useState([
     "laksono",
     "indah",
+    "amik"
   ]);
 
   
@@ -30,10 +31,9 @@ export default function Roompage() {
     }
 
   },[newPlayer])
-
-  console.log(roomDummy)
+  
   return (
-    <div className="bg-[url('./assets/1.jpg')] w-full h-screen bg-cover bg-no-repeat ">
+    <div className="bg-[url('https://cdn.dribbble.com/users/2968360/screenshots/7533734/__.gif')] w-full h-screen bg-cover  ">
 
       <div className=" flex flex-wrap gap-10 p-20 justify-center">
           <Room data={roomDummy} />
