@@ -16,7 +16,7 @@ export default function HomePage() {
           <button className="btn btn-lg w-80 h-40 bg-[url('/assets/1v1.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
             1 vs 1
           </button>
-          <button className="btn btn-lg w-80 h-40 bg-[url('/assets/multiplayer.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
+          <button className="btn btn-lg w-80 h-40 bg-[url('/assets/mutliplayer.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
             Multiplayer
           </button>
         </div>
@@ -49,12 +49,7 @@ export default function HomePage() {
               </tbody>
             </table>
           </div>
-        </div>
-      <div className="flex justify-center ">
-      
-            <Button status={status} name="PVP"/>
-            <Button status={status} name="Multiplayer"/>
-      </div>
+        </div>     
       </div>
     </>
   );
