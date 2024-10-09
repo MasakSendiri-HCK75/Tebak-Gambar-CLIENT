@@ -1,4 +1,14 @@
+import { useState } from "react";
+import Button from "../components/Button";
+
 export default function HomePage() {
+  
+  const [isPvP, setIsPvP] = useState(false)
+
+  console.log(isPvP)
+
+  let status = {isPvP, setIsPvP}
+
   return (
     <>
       <div
@@ -33,8 +43,9 @@ export default function HomePage() {
           </div>
         </div>
       <div className="flex justify-center ">
-      <button className="btn btn-lg mx-2">1 vs 1</button>
-      <button className="btn btn-lg mx-2">Multiplayer</button>
+      
+            <Button status={status} name="PVP"/>
+            <Button status={status} name="Multiplayer"/>
       </div>
 
 
