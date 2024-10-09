@@ -1,4 +1,14 @@
+import { useState } from "react";
+import Button from "../components/Button";
+
 export default function HomePage() {
+  
+  const [isPvP, setIsPvP] = useState(false)
+
+  console.log(isPvP)
+
+  let status = {isPvP, setIsPvP}
+
   return (
     <>
       <div className="w-screen h-screen bg-[url('./assets/bg.jpg')] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center p-10">
@@ -40,6 +50,11 @@ export default function HomePage() {
             </table>
           </div>
         </div>
+      <div className="flex justify-center ">
+      
+            <Button status={status} name="PVP"/>
+            <Button status={status} name="Multiplayer"/>
+      </div>
       </div>
     </>
   );

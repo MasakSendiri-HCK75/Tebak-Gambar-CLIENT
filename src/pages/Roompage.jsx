@@ -9,14 +9,11 @@ export default function Roompage() {
   });
 
   const [roomDummy, setRoomDummy] = useState([
-    {
-      name: "room1",
-      members: ["user1", "user2", "user3"],
-    },
-    {
-      name: "room2",
-      members: ["indah", "laksono", "fahmi", "bagus", "ninda"],
-    },
+    "laksono",
+    "indah",
+    "fahmi",
+    "bagus",
+    "ninda"
   ]);
 
   const handleEnterRoom = (e)=>{
@@ -39,15 +36,9 @@ export default function Roompage() {
 
   return (
     <div className="bg-[url('./assets/bg.jpg')] w-full h-screen bg-cover bg-no-repeat">
-      <div className="w-full p-4">
-        {/* enter room */}
-        <EnterRoom room={room} handleEnterRoom={handleEnterRoom} handleSubmit={handleSubmit}/>
-        {/* end of enter room */}
-      </div>
-      <div className="flex flex-wrap gap-10 p-20">
-        {roomDummy.map((el,i) => (
-          <Room key={i} data={el} />
-        ))}
+
+      <div className="flex flex-wrap gap-10 p-20 justify-center">
+          <Room data={roomDummy} />
       
 
       </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
     <>
@@ -29,7 +31,7 @@ export default function Navbar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Homepage</a>
+                <a><Link to="/"> Homepage </Link></a>
               </li>
               <li>
                 <a>Portfolio</a>
