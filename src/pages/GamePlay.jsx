@@ -26,7 +26,7 @@ export default function GamePlay() {
             type="text"
             id="jawaban"
             placeholder="Jawaban kamu..."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg "
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg text-black"
           />
           <div className="pl-7">
             <button
