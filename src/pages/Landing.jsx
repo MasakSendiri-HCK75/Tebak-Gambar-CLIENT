@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { SocketContext } from "../contexts/appSocket";
 
 export default function LandingPage() {
-  const [name, setName] = useState();
+  // const [name, setName] = useState();
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
-    if(!name){
+    if(!username){
       return(
         Swal.fire({
           icon: "error",
@@ -18,8 +20,34 @@ export default function LandingPage() {
       )
     }
 
-    localStorage.setItem("name", name);
+    localStorage.setItem("username",username);
     navigate("/homepage");
+  };
+
+  const socket = useContext(SocketContext);
+  console.log(socket, "Ini Socket");
+
+  const greet = () => {
+    socket.emit("Greet");
+
+    socket.on("Hi", (data) => {
+      console.log("Greetings", data);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: `Connect success in socket ${data.socketId}`,
+      });
+    });
   };
 
   return (
@@ -45,8 +73,8 @@ export default function LandingPage() {
             placeholder="Type your nickname here..."
             name="nickname"
             id="nickname"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>

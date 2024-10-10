@@ -9,6 +9,7 @@ export default function Button({status, name,}){
         status.setIsPvP(true)
         console.log("SDSD")
         navigate("/room")
+        
       }
     }
 

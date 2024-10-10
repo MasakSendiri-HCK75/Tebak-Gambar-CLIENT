@@ -1,16 +1,51 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import Swal from "sweetalert2";
+import { SocketContext } from "../contexts/appSocket";
+import Exit from "../components/Exit";
 
 export default function HomePage() {
   
-  const [isPvP, setIsPvP] = useState(false)
+  const navigate = useNavigate();
+  const socket = useContext(SocketContext);
+  console.log(socket.id, "Ini Socket");
 
-  console.log(isPvP)
+  let [data, setData] = useState([]); // data room
+  let [leader, setLeader] = useState([]);
 
-  let status = {isPvP, setIsPvP}
+
+  useEffect(() => {
+    socket.emit("username", localStorage.getItem("username"));
+    socket.on("Greetings with username", (data) => {
+      //   console.log(data.rooms, "ini socket");
+      setData(data.rooms);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: data.message,
+      });
+    });
+
+    socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
+      setLeader(leaderBoard);
+    });
+  }, [leader]);
 
   return (
     <>
+    <Exit/>
+    
       <div className="w-screen h-screen bg-[url('./assets/1.jpg')] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center ">
         <div className="flex flex-row justify-center items-center space-x-10 mt-40">
           <Link to='/room'><button className="btn btn-lg w-80 h-40 bg-[url('/assets/1v1.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
