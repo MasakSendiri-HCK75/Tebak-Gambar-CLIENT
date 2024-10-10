@@ -4,7 +4,7 @@ import Roompage from "../pages/Roompage";
 import Quiz from "../pages/Quiz";
 import LandingPage from "../pages/Landing";
 import HomePage from "../pages/Homepage";
-import GamePlay from "../pages/GamePlay";
+import Leaderboard from "../pages/Leaderboard";
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
     element: <Quiz />,
   },
   {
-    path: "gamePlay",
-    element: <GamePlay />,
-  },
+    path : "leaderboard",
+    element:<Leaderboard/>
+  }
 ]);
 // acuan sini

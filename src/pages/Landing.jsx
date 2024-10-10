@@ -25,13 +25,11 @@ export default function LandingPage() {
   };
 
   const socket = useContext(SocketContext);
-  console.log(socket, "Ini Socket");
 
   const greet = () => {
     socket.emit("Greet");
 
     socket.on("Hi", (data) => {
-      console.log("Greetings", data);
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
