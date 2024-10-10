@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-
+import Swal from "sweetalert2";
 import { SocketContext } from '../contexts/appSocket';
 import data from '../flags.json'
 import { useNavigate } from 'react-router-dom';
@@ -42,6 +42,18 @@ export default function Quiz() {
         
         if (answer.toUpperCase() === dataPerItem.name || answer.toUpperCase() === dataPerItem.commonName) {
             setScore(score + 10);
+            Swal.fire({
+                icon: "success",
+                title: "Correct!",
+                text: "You got 10 points",
+            });
+        }
+        else {
+            Swal.fire({
+                icon: "error",
+                title: "Oops wrong!",
+                text: "You got 0 points",
+            });
         }
 
         setChange(change + 1);
