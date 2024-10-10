@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Swal from "sweetalert2";
 import { SocketContext } from "../contexts/appSocket";
@@ -9,16 +9,18 @@ export default function HomePage() {
   
   const navigate = useNavigate();
   const socket = useContext(SocketContext);
-  console.log(socket.id, "Ini Socket");
 
   let [data, setData] = useState([]); // data room
   let [leader, setLeader] = useState([]);
 
+  if(!socket) navigate("/")
 
   useEffect(() => {
-    socket.emit("username", localStorage.getItem("username"));
-    socket.on("Greetings with username", (data) => {
-      //   console.log(data.rooms, "ini socket");
+    if(!socket) return navigate("/")
+    socket?.emit("username", localStorage.getItem("username"));
+    socket?.on("Greetings with username", (data) => {
+        // console.log(data.rooms, "ini socket");
+      // console
       setData(data.rooms);
       const Toast = Swal.mixin({
         toast: true,
@@ -37,10 +39,10 @@ export default function HomePage() {
       });
     });
 
-    socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
+    socket?.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
     });
-  }, [leader]);
+  }, []);
 
   return (
     <>
@@ -48,9 +50,6 @@ export default function HomePage() {
     
       <div className="w-screen h-screen bg-[url('./assets/1.jpg')] bg-cover bg-no-repeat bg-center flex flex-col justify-center items-center ">
         <div className="flex flex-row justify-center items-center space-x-10 mt-40">
-          <Link to='/room'><button className="btn btn-lg w-80 h-40 bg-[url('/assets/1v1.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
-            1 vs 1
-          </button></Link>
           <Link to='/room'><button className="btn btn-lg w-80 h-40 bg-[url('/assets/multiplayer.png')] bg-cover bg-center text-white font-extrabold text-5xl rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl duration-300 ease-in-out flex items-center justify-center">
             Multiplayer
           </button></Link>

@@ -11,8 +11,9 @@ export default function Room() {
   const socket = useContext(SocketContext);
 
   useEffect(() => {
-    socket.emit("username", localStorage.getItem("username"));
-    socket.on("Greetings with username", (data) => {
+    if(!socket) return navigate("/")
+    socket?.emit("username", localStorage.getItem("username"));
+    socket?.on("Greetings with username", (data) => {
       //   console.log(data.rooms, "ini socket");
       setData(data.rooms);
       const Toast = Swal.mixin({
@@ -32,7 +33,7 @@ export default function Room() {
       });
     });
 
-    socket.on("showLeaderBoard:broadcast", (leaderBoard) => {
+    socket?.on("showLeaderBoard:broadcast", (leaderBoard) => {
       setLeader(leaderBoard);
     });
   }, [leader]);
