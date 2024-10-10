@@ -105,7 +105,7 @@ export default function Quiz() {
     setTimeout(() => {
       setCurrentQuestion(currentQuestion + 1);
       setTimeLeft(10);
-    }, 2000); 
+    }, 1000); 
   };
 
   return (
