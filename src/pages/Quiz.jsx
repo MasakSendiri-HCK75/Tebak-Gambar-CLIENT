@@ -71,10 +71,14 @@ export default function Quiz() {
   };
 
   return (
+    <div
+    className=" w-screen h-screen bg-[url('./assets/9.jpg')] bg-cover bg-no-repeat bg-center flex justify-center pb-20" 
+    style={{ alignItems: "center" }}
+  >
     <div className="flex justify-center items-center flex-col mt-12">
       {currentQuestion < flagDataNew.length ? (
-        <div className="max-w-md mx-auto mt-8 p-6 bg-gradient-to-br from-green-200 to-blue-400 bg-opacity-90 rounded-lg shadow-xl">
-          <h1 className="text-3xl font-bold mb-4 text-center text-white">Flag Quiz</h1>
+        <div className="max-w-md mx-auto mt-8 p-6 bg-gradient-to-br from-green-300 to-blue-300 bg-opacity-90 rounded-lg shadow-xl">
+          <h1 className="text-3xl font-bold mb-4 text-center text-gray">Flag Quiz</h1>
           <img src={flagDataNew[currentQuestion].imageUrl} alt="Flag" className="w-full h-auto mb-4 rounded-md shadow-md" />
           <form onSubmit={handleSubmit} className="mb-4">
             <input
@@ -91,9 +95,9 @@ export default function Quiz() {
               Submit
             </button>
           </form>
-          <p className="text-center text-white">Time Left: {timeLeft} seconds</p>
-          <p className="text-center text-white">Question: {currentQuestion + 1} / {flagDataNew.length}</p>
-          <p className="text-center text-white">Score: {score} / {flagDataNew.length}</p>
+          <p className="text-center text-black">Time Left: {timeLeft} seconds</p>
+          <p className="text-center text-black">Question: {currentQuestion + 1} / {flagDataNew.length}</p>
+          <p className="text-center text-black">Score: {score} / {flagDataNew.length}</p>
         </div>
       ) : (
         <div className="max-w-md mx-auto mt-8 p-6 bg-gradient-to-br from-green-200 to-blue-400 bg-opacity-90 rounded-lg shadow-xl">
@@ -108,6 +112,7 @@ export default function Quiz() {
         </div>
       )}
 
+    </div>
     </div>
   );
 }
