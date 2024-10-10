@@ -50,6 +50,10 @@ export default function Quiz() {
     };
 
   return (
+    <div
+    className=" w-screen h-screen bg-[url('./assets/9.jpg')] bg-cover bg-no-repeat bg-center flex justify-center pb-20" 
+    style={{ alignItems: "center" }}
+  >
     <div className="flex justify-center items-center flex-col mt-12">
       <Exit/>
       <div className="card bg-base-100 w-96 shadow-xl">
@@ -80,6 +84,7 @@ export default function Quiz() {
         </div>
         </div>
 
+    </div>
     </div>
   );
 }
